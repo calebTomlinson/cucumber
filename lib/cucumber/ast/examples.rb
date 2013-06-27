@@ -4,10 +4,11 @@ module Cucumber
   module Ast
     class Examples #:nodoc:
       include Names
+      attr_reader :tags
       attr_writer :outline_table
       
-      def initialize(comment, line, keyword, title, description, outline_table)
-        @comment, @keyword, @title, @description, @outline_table = comment, keyword, title, description, outline_table
+      def initialize(comment, line, keyword, title, description, outline_table, tags)
+        @comment, @keyword, @title, @description, @outline_table, @tags = comment, keyword, title, description, outline_table, tags
       end
 
       attr_reader :gherkin_statement

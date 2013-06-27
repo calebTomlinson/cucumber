@@ -1,10 +1,12 @@
 module Cucumber
   module Ast
     class OutlineTable < Table #:nodoc:
-      def initialize(raw, scenario_outline)
+      attr_reader :tags
+      def initialize(raw, scenario_outline, tags)
         super(raw)
         @scenario_outline = scenario_outline
         @cells_class = ExampleRow
+        @tags = tags
         init
       end
 

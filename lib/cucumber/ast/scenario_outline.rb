@@ -45,9 +45,11 @@ module Cucumber
           examples_title       = example_section[3]
           examples_description = example_section[4]
           examples_matrix      = example_section[5]
+          examples_tags        = Cucumber::Ast::Tags.new nil, gherkin_examples.tags
+          
 
-          examples_table = OutlineTable.new(examples_matrix, self)
-          ex = Examples.new(examples_comment, examples_line, examples_keyword, examples_title, examples_description, examples_table)
+          examples_table = OutlineTable.new(examples_matrix, self, examples_tags)
+          ex = Examples.new(examples_comment, examples_line, examples_keyword, examples_title, examples_description, examples_table, examples_tags)
           ex.gherkin_statement(gherkin_examples)
           ex
         end
