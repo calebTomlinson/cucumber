@@ -37,7 +37,7 @@ module Cucumber
       end
 
       def source_tags
-        @scenario_outline.source_tags
+        (@tags.tags.to_a + @scenario_outline.source_tags.to_a).uniq
       end
 
       def source_tag_names
